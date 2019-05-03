@@ -5,14 +5,15 @@ ARCH      := $(shell uname -m | sed "s_armv7l_armhf_")# armhf/x86_64 auto-detect
 OPSYS     := alpine
 SHCOMMAND := /bin/bash
 SVCNAME   := android
-USERNAME  := grandfleet
+USERNAME  := woahbase
+DOCKER_HUB_USERNAME := grandfleet
 
 PUID       := $(shell id -u)
 PGID       := $(shell id -g)# gid 100(users) usually pre exists
 
 DOCKERSRC := $(OPSYS)-openjdk8#
 DOCKEREPO := $(OPSYS)-$(SVCNAME)
-IMAGETAG  := $(USERNAME)/$(DOCKEREPO):$(ARCH)
+IMAGETAG  := $(DOCKER_HUB_USERNAME)/$(DOCKEREPO):$(ARCH)
 
 CNTNAME   := $(SVCNAME) # name for container name : docker_name, hostname : name
 
